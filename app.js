@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initInteractiveMap();
     initModalEvents();
     initTestimonialCarousel();
+    initVoiceSelector();
 });
 
 /* ==========================================================================
@@ -1201,8 +1202,19 @@ function speakText(text, lang) {
             te: 'te-IN',
             kn: 'kn-IN'
         };
-        utterance.lang = langMap[lang] || 'en-IN';
+        const targetLang = langMap[lang] || 'en-IN';
+        utterance.lang = targetLang;
         utterance.rate = 0.95; // slightly slower for clarity in rural setups
+        
+        if (currentActiveVoice && currentActiveVoice.lang.includes(lang)) {
+            utterance.voice = currentActiveVoice;
+        } else {
+            const voices = window.speechSynthesis.getVoices();
+            const matchingVoice = voices.find(voice => voice.lang.includes(targetLang));
+            if (matchingVoice) {
+                utterance.voice = matchingVoice;
+            }
+        }
         
         window.speechSynthesis.speak(utterance);
     }
@@ -1512,6 +1524,11 @@ function syncLanguage(lang) {
     // Update suggested questions in the assistant
     if (typeof renderSuggestedQuestions === 'function') {
         renderSuggestedQuestions();
+    }
+
+    // Select default voice for the newly selected language
+    if (typeof selectDefaultVoiceForLang === 'function') {
+        selectDefaultVoiceForLang(lang);
     }
 }
 
@@ -2813,8 +2830,101 @@ const UI_TRANSLATIONS = {
         "profile-age-placeholder": "ಉದಾ. 42",
         "profile-income-placeholder": "ಉದಾ. 12000",
         "shield-url-placeholder": "ಉದಾ. http://pmkisan-subsidy-free.in",
-        "shield-text-placeholder": "ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ನಕಲಿಸಿ...",
         "chat-input-placeholder": "ನಿಮ್ಮ ಪ್ರಶ್ನೆ ಕೇಳಿ...",
         "footer-news-placeholder": "ಇಮೇಲ್ ವಿಳಾಸ ನಮೂದಿಸಿ"
     }
 };
+
+/* ==========================================================================
+   Voice Selector Helper Functions
+   ========================================================================== */
+
+let currentActiveVoice = null;
+
+function initVoiceSelector() {
+    const voiceSelect = document.getElementById('chat-voice-select');
+    if (!voiceSelect) return;
+
+    function populateVoices() {
+        if (!('speechSynthesis' in window)) return;
+        const voices = window.speechSynthesis.getVoices();
+        voiceSelect.innerHTML = '';
+
+        // Add default option
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = "";
+        defaultOpt.textContent = "Default Voice";
+        voiceSelect.appendChild(defaultOpt);
+
+        const supportedVoiceLangs = ['en', 'hi', 'mr', 'ta', 'te', 'kn'];
+        
+        voices.forEach(voice => {
+            const prefix = voice.lang.split('-')[0].split('_')[0].toLowerCase();
+            if (supportedVoiceLangs.includes(prefix)) {
+                const option = document.createElement('option');
+                option.value = voice.name;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-lang', prefix);
+                voiceSelect.appendChild(option);
+            }
+        });
+
+        // Select the active voice or select one for current Lang
+        if (currentActiveVoice) {
+            voiceSelect.value = currentActiveVoice.name;
+        } else {
+            selectDefaultVoiceForLang(currentLang);
+        }
+    }
+
+    populateVoices();
+    if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = populateVoices;
+    }
+
+    voiceSelect.addEventListener('change', (e) => {
+        const selectedName = e.target.value;
+        if (!selectedName) {
+            currentActiveVoice = null;
+            return;
+        }
+        const voices = window.speechSynthesis.getVoices();
+        const voiceObj = voices.find(v => v.name === selectedName);
+        if (voiceObj) {
+            currentActiveVoice = voiceObj;
+            const voiceLang = voiceObj.lang.split('-')[0].split('_')[0].toLowerCase();
+            const supportedVoiceLangs = ['en', 'hi', 'mr', 'ta', 'te', 'kn'];
+            if (supportedVoiceLangs.includes(voiceLang) && voiceLang !== currentLang) {
+                syncLanguage(voiceLang);
+            }
+        }
+    });
+}
+
+function selectDefaultVoiceForLang(lang) {
+    const voiceSelect = document.getElementById('chat-voice-select');
+    if (!voiceSelect) return;
+
+    const langMap = {
+        en: 'en-IN',
+        hi: 'hi-IN',
+        mr: 'mr-IN',
+        ta: 'ta-IN',
+        te: 'te-IN',
+        kn: 'kn-IN'
+    };
+    const targetLang = langMap[lang] || 'en-IN';
+    const voices = window.speechSynthesis.getVoices();
+    
+    let matchedVoice = voices.find(v => v.lang.includes(targetLang));
+    if (!matchedVoice) {
+        matchedVoice = voices.find(v => v.lang.startsWith(lang));
+    }
+
+    if (matchedVoice) {
+        currentActiveVoice = matchedVoice;
+        voiceSelect.value = matchedVoice.name;
+    } else {
+        voiceSelect.value = "";
+    }
+}
