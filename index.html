@@ -25,7 +25,12 @@
     <header id="header">
         <div class="container navbar">
             <a href="#" class="logo">
-                <i class="fa-solid fa-compass-drafting"></i>
+                <svg class="logo-svg" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="var(--primary)" stroke-width="8" stroke-dasharray="14 6"/>
+                    <path d="M50 20 L68 50 L50 80 L32 50 Z" fill="var(--primary-light)"/>
+                    <circle cx="50" cy="50" r="10" fill="#FFFFFF" stroke="var(--primary-dark)" stroke-width="4"/>
+                    <path d="M50 5 L50 15 M50 85 L50 95 M5 50 L15 50 M85 50 L95 50" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"/>
+                </svg>
                 <span>GramSathi <span class="logo-dot">AI</span></span>
             </a>
             
@@ -40,6 +45,9 @@
             </ul>
 
             <div class="header-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" style="margin-right: 0.5rem; background: none; border: 1px solid var(--border-light); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); cursor: pointer; transition: var(--transition-fast);">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
                 <select class="lang-select" id="header-lang" aria-label="Select Language">
                     <option value="en">English</option>
                     <option value="hi">हिन्दी (Hindi)</option>

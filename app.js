@@ -4,6 +4,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
     initScrollAnimations();
     initMobileMenu();
     initHeaderScroll();
@@ -15,6 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     initVillageDashboard();
     initTestimonialCarousel();
 });
+
+/* ==========================================================================
+   Theme Toggle System
+   ========================================================================== */
+
+function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    if (toggle) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            toggle.querySelector('i').className = 'fa-solid fa-sun';
+        }
+        
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const isDark = body.classList.contains('dark-theme');
+            toggle.querySelector('i').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+}
 
 /* ==========================================================================
    Scroll-Linked & Global Animations
@@ -688,6 +713,9 @@ function finishShieldScan(target) {
     scanningState.classList.remove('active');
     reportState.classList.add('active');
 
+    // Apply certificate style classes
+    reportCard.className = 'shield-report-card certificate';
+
     // Decide if safe or scam based on mock parameters
     let isSafe = false;
     let score = 12;
@@ -716,6 +744,7 @@ function finishShieldScan(target) {
     }
 
     reportCard.innerHTML = `
+        <div class="report-badge-stamp ${isSafe ? 'safe' : 'scam'}"></div>
         <div class="report-header">
             <div class="report-title">
                 <h4>${verdictTitle}</h4>
