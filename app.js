@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSchemeShield();
     initAIAssistant();
     initVillageDashboard();
+    initInteractiveMap();
+    initModalEvents();
     initTestimonialCarousel();
 });
 
@@ -466,9 +468,14 @@ function renderCategorySchemes(category) {
                 <p>${scheme.desc}</p>
                 <span class="scheme-tag">${scheme.val}</span>
             </div>
-            <button class="scheme-action-btn" onclick="simulateApplyScheme('${scheme.name}')">
-                Apply <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; flex-shrink: 0;">
+                <button class="scheme-action-btn" onclick="simulateApplyScheme('${scheme.name}')">
+                    Apply <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="scheme-action-btn" style="background-color: var(--primary-glow); border-color: rgba(22, 163, 74, 0.2);" onclick="openApplicationModal('${scheme.name}')">
+                    Form Summary <i class="fa-solid fa-file-invoice"></i>
+                </button>
+            </div>
         `;
         container.appendChild(card);
     });
@@ -478,6 +485,62 @@ function renderCategorySchemes(category) {
 window.simulateApplyScheme = function(schemeName) {
     alert(`Success! Opening official application routing portal for "${schemeName}". Complete KYC authentication inside.`);
 };
+
+// Application modal logic
+window.openApplicationModal = function(schemeName) {
+    const modal = document.getElementById('application-modal');
+    if (!modal) return;
+
+    // Retrieve form parameters, fallback to placeholder if empty
+    const nameVal = document.getElementById('profile-name').value || "Guest Citizen";
+    const ageVal = document.getElementById('profile-age').value || "42";
+    const occVal = document.getElementById('profile-occupation').value || "Farmer / Agriculture";
+    const stateVal = document.getElementById('profile-state').value || "Maharashtra";
+    const scoreVal = document.getElementById('radial-score-val').textContent || "84%";
+    const incomeVal = document.getElementById('profile-income').value || "8000";
+
+    // Update modal text fields
+    document.getElementById('cert-name').textContent = nameVal;
+    document.getElementById('cert-age').textContent = ageVal + " Years";
+    document.getElementById('cert-occupation').textContent = occVal;
+    document.getElementById('cert-region').textContent = `${stateVal} / Pune`;
+    document.getElementById('cert-score').textContent = `${scoreVal}`;
+    document.getElementById('cert-income').textContent = "₹" + parseInt(incomeVal).toLocaleString('en-IN');
+
+    // Find scheme details in database
+    let matchedScheme = null;
+    Object.keys(SCHEMES_DATABASE).forEach(key => {
+        const found = SCHEMES_DATABASE[key].find(s => s.name === schemeName);
+        if (found) matchedScheme = found;
+    });
+
+    const detailsContainer = document.getElementById('cert-scheme-details');
+    if (detailsContainer && matchedScheme) {
+        detailsContainer.innerHTML = `
+            <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--primary-dark);">${matchedScheme.name}</div>
+            <p style="margin: 0; font-size: 0.85rem; line-height: 1.4; color: var(--text-main);">${matchedScheme.desc}</p>
+            <div style="margin-top: 0.5rem; font-weight: 700; font-size: 0.85rem; color: var(--primary-dark);">Value/Coverage: ${matchedScheme.val}</div>
+        `;
+    }
+
+    modal.classList.add('active');
+};
+
+function initModalEvents() {
+    const modal = document.getElementById('application-modal');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const closeBottomBtn = document.getElementById('close-modal-bottom-btn');
+
+    if (!modal) return;
+    const closeModal = () => modal.classList.remove('active');
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeBottomBtn) closeBottomBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
 
 
 /* ==========================================================================
@@ -1105,6 +1168,16 @@ function initVillageDashboard() {
         districtSel.addEventListener('change', () => {
             updateVillageDropdown();
             renderDashboardData();
+            
+            // Sync interactive map active outline highlight
+            const activeDist = districtSel.value;
+            document.querySelectorAll('.map-district-path').forEach(p => {
+                if (p.getAttribute('data-district') === activeDist) {
+                    p.classList.add('active');
+                } else {
+                    p.classList.remove('active');
+                }
+            });
         });
     }
 
@@ -1258,6 +1331,29 @@ function initTestimonialCarousel() {
         dot.addEventListener('click', () => {
             currentStoryIdx = parseInt(dot.getAttribute('data-slide'));
             updateCarousel();
+        });
+    });
+}
+
+/* ==========================================================================
+   Interactive Map Handler
+   ========================================================================== */
+function initInteractiveMap() {
+    const paths = document.querySelectorAll('.map-district-path');
+    const districtSel = document.getElementById('db-district');
+    
+    paths.forEach(path => {
+        path.addEventListener('click', () => {
+            paths.forEach(p => p.classList.remove('active'));
+            path.classList.add('active');
+            
+            const dist = path.getAttribute('data-district');
+            if (districtSel) {
+                districtSel.value = dist;
+                // Trigger change event to fire cascading filters
+                const event = new Event('change');
+                districtSel.dispatchEvent(event);
+            }
         });
     });
 }

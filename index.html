@@ -65,6 +65,26 @@
     </header>
 
     <!-- ==========================================================================
+       Live Scam Alert Ribbon Ticker
+       ========================================================================== -->
+    <div class="alert-ribbon">
+        <div class="ribbon-ticker">
+            <span class="ribbon-ticker-item">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #EF4444; margin-right: 0.5rem;"></i>
+                <strong>CYBER WARNING:</strong> Fake PM Kisan portals requesting verification fees flagged. Do not share OTPs or pay upfront.
+            </span>
+            <span class="ribbon-ticker-item">
+                <i class="fa-solid fa-bullhorn" style="color: var(--primary-light); margin-right: 0.5rem;"></i>
+                <strong>NEW SCHEME:</strong> PM Surya Ghar Solar Subsidy is active. Calculate savings in our Simulator.
+            </span>
+            <span class="ribbon-ticker-item">
+                <i class="fa-solid fa-shield-halved" style="color: #3B82F6; margin-right: 0.5rem;"></i>
+                <strong>VILLAGE INTEL:</strong> 3 phishing links successfully deflected in Pune District this week.
+            </span>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
        Hero Section
        ========================================================================== -->
     <section id="hero">
@@ -733,6 +753,27 @@
                 </select>
             </div>
 
+            <!-- Interactive Map Container -->
+            <div class="map-panel glass-card scroll-animate" style="margin-bottom: 3rem; padding: 2.5rem; text-align: center;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Interactive District Vulnerability & Opportunity Map</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Select a region below to audit regional metrics, unclaimed subsidies, and cybersecurity alerts.</p>
+                <div class="map-wrapper" style="max-width: 480px; margin: 0 auto; position: relative;">
+                    <svg id="interactive-map-svg" viewBox="0 0 400 300" style="width: 100%; height: auto;">
+                        <!-- Nashik District -->
+                        <path id="map-nashik" class="map-district-path" d="M120 70 L220 50 L240 120 L160 140 L130 110 Z" fill="#CBD5E1" stroke="#FFFFFF" stroke-width="2.5" style="transition: all 0.3s ease; cursor: pointer;" data-district="Nashik" />
+                        <!-- Pune District -->
+                        <path id="map-pune" class="map-district-path active" d="M160 140 L240 120 L260 210 L180 230 L140 170 Z" fill="#22C55E" stroke="#FFFFFF" stroke-width="2.5" style="transition: all 0.3s ease; cursor: pointer;" data-district="Pune" />
+                        <!-- Satara District -->
+                        <path id="map-satara" class="map-district-path" d="M180 230 L260 210 L280 280 L200 290 L170 250 Z" fill="#CBD5E1" stroke="#FFFFFF" stroke-width="2.5" style="transition: all 0.3s ease; cursor: pointer;" data-district="Satara" />
+                        
+                        <!-- labels -->
+                        <text x="165" y="90" fill="#475569" font-size="11" font-family="'Inter', sans-serif" font-weight="700" text-anchor="middle" pointer-events="none">Nashik</text>
+                        <text x="185" y="170" fill="#FFFFFF" font-size="11" font-family="'Inter', sans-serif" font-weight="700" text-anchor="middle" pointer-events="none">Pune</text>
+                        <text x="210" y="250" fill="#475569" font-size="11" font-family="'Inter', sans-serif" font-weight="700" text-anchor="middle" pointer-events="none">Satara</text>
+                    </svg>
+                </div>
+            </div>
+
             <!-- Dashboard Numbers Grid -->
             <div class="dashboard-grid scroll-animate">
                 <div class="dashboard-stat-card glass-card">
@@ -945,6 +986,67 @@
             </div>
         </div>
     </footer>
+
+    <!-- ==========================================================================
+       Pre-filled Welfare Application Modal
+       ========================================================================== -->
+    <div id="application-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Modal">&times;</button>
+            <div id="modal-printable-area">
+                <div class="certificate-header">
+                    <svg class="logo-svg" width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="#16A34A" stroke-width="8" stroke-dasharray="14 6"/>
+                        <path d="M50 20 L68 50 L50 80 L32 50 Z" fill="#22C55E"/>
+                        <circle cx="50" cy="50" r="10" fill="#FFFFFF" stroke="#15803D" stroke-width="4"/>
+                    </svg>
+                    <div>
+                        <h2 style="font-size: 1.4rem; margin: 0;">GramSathi AI Portal</h2>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">National Welfare Verification Certificate</span>
+                    </div>
+                </div>
+                
+                <div class="certificate-body">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">This document verifies eligibility parameters processed under the GramSathi Cognitive Intelligence Engine.</p>
+                    
+                    <div class="cert-grid">
+                        <div class="cert-item"><strong>Applicant Name:</strong> <span id="cert-name">Ramesh Kumar</span></div>
+                        <div class="cert-item"><strong>Age / Gender:</strong> <span id="cert-age">42 Years</span></div>
+                        <div class="cert-item"><strong>Occupation:</strong> <span id="cert-occupation">Farmer / Agriculture</span></div>
+                        <div class="cert-item"><strong>State / District:</strong> <span id="cert-region">Maharashtra / Pune</span></div>
+                        <div class="cert-item"><strong>Opportunity Score:</strong> <span id="cert-score">84% Match</span></div>
+                        <div class="cert-item"><strong>Monthly Income:</strong> <span id="cert-income">₹8,000</span></div>
+                    </div>
+                    
+                    <div class="cert-scheme-section">
+                        <h4>Calculated Eligibility Target</h4>
+                        <div id="cert-scheme-details">
+                            <!-- Scheme details go here -->
+                        </div>
+                    </div>
+
+                    <div class="cert-footer">
+                        <div class="cert-qr-box">
+                            <i class="fa-solid fa-qrcode" style="font-size: 3rem; color: var(--bg-dark);"></i>
+                            <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">SCAN SECURE KYC</span>
+                        </div>
+                        <div style="text-align: right; font-size: 0.8rem;">
+                            <span style="display: block; font-weight: 700;">Government of India</span>
+                            <span style="display: block; color: var(--text-muted);">Cognitive Welfare Agency</span>
+                            <span style="display: block; font-size: 0.65rem; margin-top: 0.5rem; color: var(--primary);">STATUS: ACTIVE / VERIFIED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Print / Save PDF
+                </button>
+                <button class="btn btn-secondary" id="close-modal-bottom-btn">Close</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Local Application Scripts -->
     <script src="app.js"></script>
