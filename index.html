@@ -35,13 +35,13 @@
             </a>
             
             <ul class="nav-links" id="nav-links">
-                <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#discovery">Opportunities</a></li>
-                <li><a href="#simulator">Simulator</a></li>
-                <li><a href="#schemeshield">SchemeShield</a></li>
-                <li><a href="#assistant">AI Assistant</a></li>
-                <li><a href="#village-dashboard">Village Intel</a></li>
+                <li><a href="#hero" class="active" data-i18n="nav-home">Home</a></li>
+                <li><a href="#problem" data-i18n="nav-problem">Problem</a></li>
+                <li><a href="#discovery" data-i18n="nav-opportunities">Opportunities</a></li>
+                <li><a href="#simulator" data-i18n="nav-simulator">Simulator</a></li>
+                <li><a href="#schemeshield" data-i18n="nav-schemeshield">SchemeShield</a></li>
+                <li><a href="#assistant" data-i18n="nav-assistant">AI Assistant</a></li>
+                <li><a href="#village-dashboard" data-i18n="nav-village-dashboard">Village Intel</a></li>
             </ul>
 
             <div class="header-actions">
@@ -56,7 +56,7 @@
                     <option value="te">తెలుగు (Telugu)</option>
                     <option value="kn">ಕನ್ನಡ (Kannada)</option>
                 </select>
-                <a href="#discovery" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Check Eligibility</a>
+                <a href="#discovery" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;" data-i18n="nav-btn-eligibility">Check Eligibility</a>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -69,15 +69,15 @@
        ========================================================================== -->
     <div class="alert-ribbon">
         <div class="ribbon-ticker">
-            <span class="ribbon-ticker-item">
+            <span class="ribbon-ticker-item" data-i18n="ticker-1">
                 <i class="fa-solid fa-triangle-exclamation" style="color: #EF4444; margin-right: 0.5rem;"></i>
                 <strong>CYBER WARNING:</strong> Fake PM Kisan portals requesting verification fees flagged. Do not share OTPs or pay upfront.
             </span>
-            <span class="ribbon-ticker-item">
+            <span class="ribbon-ticker-item" data-i18n="ticker-2">
                 <i class="fa-solid fa-bullhorn" style="color: var(--primary-light); margin-right: 0.5rem;"></i>
                 <strong>NEW SCHEME:</strong> PM Surya Ghar Solar Subsidy is active. Calculate savings in our Simulator.
             </span>
-            <span class="ribbon-ticker-item">
+            <span class="ribbon-ticker-item" data-i18n="ticker-3">
                 <i class="fa-solid fa-shield-halved" style="color: #3B82F6; margin-right: 0.5rem;"></i>
                 <strong>VILLAGE INTEL:</strong> 3 phishing links successfully deflected in Pune District this week.
             </span>
@@ -91,30 +91,36 @@
         <div class="container hero-grid">
             <div class="hero-content">
                 <div class="badge badge-primary">
-                    <i class="fa-solid fa-shield-halved"></i> National Digital Mission Powered by AI
+                    <i class="fa-solid fa-shield-halved"></i> <span data-i18n="hero-badge">National Digital Mission Powered by AI</span>
                 </div>
-                <h1>Find Opportunities.<br>Stay Protected.<br>Empower Communities.</h1>
-                <p>GramSathi AI is a digital companion for citizens across India. Instantly discover the government schemes, subsidies, and scholarships you qualify for, while securing yourself against online scams, phishing, and fake websites.</p>
+                <h1>
+                    <span data-i18n="hero-title">Find Opportunities.<br>Stay Protected.<br>Empower Communities.</span>
+                    <button class="btn-speak" onclick="speakKey('hero-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h1>
+                <p>
+                    <span data-i18n="hero-desc">GramSathi AI is a digital companion for citizens across India. Instantly discover the government schemes, subsidies, and scholarships you qualify for, while securing yourself against online scams, phishing, and fake websites.</span>
+                    <button class="btn-speak" onclick="speakKey('hero-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
                 <div class="hero-ctas">
                     <a href="#discovery" class="btn btn-primary">
-                        <i class="fa-solid fa-magnifying-glass"></i> Discover Opportunities
+                        <i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="hero-cta-discover">Discover Opportunities</span>
                     </a>
                     <a href="#schemeshield" class="btn btn-secondary">
-                        <i class="fa-solid fa-user-shield"></i> Run SchemeShield Scan
+                        <i class="fa-solid fa-user-shield"></i> <span data-i18n="hero-cta-scan">Run SchemeShield Scan</span>
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat-item">
                         <h3 id="stat-schemes">320+</h3>
-                        <p>Verified Schemes</p>
+                        <p data-i18n="hero-stat-schemes-lbl">Verified Schemes</p>
                     </div>
                     <div class="hero-stat-item">
                         <h3 id="stat-scams">14,200+</h3>
-                        <p>Scams Deflected</p>
+                        <p data-i18n="hero-stat-scams-lbl">Scams Deflected</p>
                     </div>
                     <div class="hero-stat-item">
                         <h3 id="stat-villages">450+</h3>
-                        <p>Villages Empanelled</p>
+                        <p data-i18n="hero-stat-villages-lbl">Villages Empanelled</p>
                     </div>
                 </div>
             </div>
@@ -123,8 +129,8 @@
                     <div class="hero-circle-backdrop"></div>
                     <div class="hero-interactive-card glass-card">
                         <div class="hero-card-header">
-                            <span style="font-weight: 700; font-size: 1rem;"><i class="fa-solid fa-microchip" style="color: var(--primary-light);"></i> GramSathi Engine</span>
-                            <div class="badge badge-primary" style="font-size: 0.75rem;">LIVE RADAR</div>
+                             <span style="font-weight: 700; font-size: 1rem;"><i class="fa-solid fa-microchip" style="color: var(--primary-light);"></i> <span data-i18n="hero-radar-title">GramSathi Engine</span></span>
+                            <div class="badge badge-primary" style="font-size: 0.75rem;" data-i18n="hero-radar-live">LIVE RADAR</div>
                         </div>
                         <div class="hero-radar-radar">
                             <div class="radar-sweep"></div>
@@ -133,17 +139,17 @@
                             <div class="radar-dot radar-dot-3"></div>
                             <div class="radar-score-overlay">
                                 <div class="score-val" id="hero-score-val">84%</div>
-                                <div class="score-lbl">Match Score</div>
+                                <div class="score-lbl" data-i18n="hero-radar-score">Match Score</div>
                             </div>
                         </div>
                         <div class="hero-card-footer">
                             <div class="hero-card-stat">
                                 <h4 id="hero-matches-count">12</h4>
-                                <span>Schemes Found</span>
+                                <span data-i18n="hero-radar-found">Schemes Found</span>
                             </div>
                             <div class="hero-card-stat">
                                 <h4 id="hero-benefits-val">₹42,000</h4>
-                                <span>Est. Value/Yr</span>
+                                <span data-i18n="hero-radar-val">Est. Value/Yr</span>
                             </div>
                         </div>
                     </div>
@@ -159,15 +165,27 @@
         <div class="container problem-grid scroll-animate">
             <div class="problem-left">
                 <div class="badge badge-danger" style="margin-bottom: 1.5rem;">
-                    <i class="fa-solid fa-circle-exclamation"></i> Critical Security & Access Alert
+                    <i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="problem-badge">Critical Security & Access Alert</span>
                 </div>
-                <h2>The Double-Ended Crisis in Rural Digital India</h2>
-                <p>As the nation progresses towards a 5-trillion dollar digital economy, millions of citizens in rural and semi-urban communities are left behind, facing two compounding issues.</p>
+                <h2>
+                    <span data-i18n="problem-title">The Double-Ended Crisis in Rural Digital India</span>
+                    <button class="btn-speak" onclick="speakKey('problem-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="problem-desc">As the nation progresses towards a 5-trillion dollar digital economy, millions of citizens in rural and semi-urban communities are left behind, facing two compounding issues.</span>
+                    <button class="btn-speak" onclick="speakKey('problem-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
                 <div class="alert-card">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <div>
-                        <p style="font-weight: 700; margin-bottom: 0.25rem;">Information Gap vs. Scam Inflation</p>
-                        <p style="font-size: 0.85rem; color: #CBD5E1;">While billions in welfare go unclaimed due to scattered data and language barriers, digital literacy gaps have made these same citizens prime targets for sophisticated online financial frauds.</p>
+                        <p style="font-weight: 700; margin-bottom: 0.25rem;">
+                            <span data-i18n="problem-alert-title">Information Gap vs. Scam Inflation</span>
+                            <button class="btn-speak" onclick="speakKey('problem-alert-title')" aria-label="Listen to warning title"><i class="fa-solid fa-volume-high"></i></button>
+                        </p>
+                        <p style="font-size: 0.85rem; color: #CBD5E1;">
+                            <span data-i18n="problem-alert-desc">While billions in welfare go unclaimed due to scattered data and language barriers, digital literacy gaps have made these same citizens prime targets for sophisticated online financial frauds.</span>
+                            <button class="btn-speak" onclick="speakKey('problem-alert-desc')" aria-label="Listen to warning details"><i class="fa-solid fa-volume-high"></i></button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -175,22 +193,22 @@
                 <div class="problem-card">
                     <div class="problem-card-icon"><i class="fa-solid fa-folder-minus"></i></div>
                     <div class="problem-card-content">
-                        <h4>Scattered & Fragmented Portals</h4>
-                        <p>Welfare programs are spread across hundreds of state and central websites. Requirements are dense, dry, and difficult to comprehend without expert assistance.</p>
+                        <h4 data-i18n="problem-card1-title">Scattered & Fragmented Portals</h4>
+                        <p data-i18n="problem-card1-desc">Welfare programs are spread across hundreds of state and central websites. Requirements are dense, dry, and difficult to comprehend without expert assistance.</p>
                     </div>
                 </div>
                 <div class="problem-card">
                     <div class="problem-card-icon red-icon"><i class="fa-solid fa-laptop-medical"></i></div>
                     <div class="problem-card-content">
-                        <h4>Rise of Spoof Scheme Sites</h4>
-                        <p>Imposter sites designed to look like official portals request processing fees for subsidies like PM Kisan or fake student scholarships.</p>
+                        <h4 data-i18n="problem-card2-title">Rise of Spoof Scheme Sites</h4>
+                        <p data-i18n="problem-card2-desc">Imposter sites designed to look like official portals request processing fees for subsidies like PM Kisan or fake student scholarships.</p>
                     </div>
                 </div>
                 <div class="problem-card">
                     <div class="problem-card-icon red-icon"><i class="fa-solid fa-comment-sms"></i></div>
                     <div class="problem-card-content">
-                        <h4>Phishing via Social Messaging</h4>
-                        <p>Citizens receive malicious WhatsApp and SMS links promising free solar panels, cheap loans, or cash giveaways to harvest identity data.</p>
+                        <h4 data-i18n="problem-card3-title">Phishing via Social Messaging</h4>
+                        <p data-i18n="problem-card3-desc">Citizens receive malicious WhatsApp and SMS links promising free solar panels, cheap loans, or cash giveaways to harvest identity data.</p>
                     </div>
                 </div>
             </div>
@@ -203,30 +221,36 @@
     <section id="gap" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">THE IMPACT GAP</div>
-                <h2>Socio-Economic Opportunities Lost Everyday</h2>
-                <p>A statistical breakdown of missed benefits and cybersecurity threats facing low digital-literacy users across the nation.</p>
+                <div class="badge badge-primary" data-i18n="gap-badge">THE IMPACT GAP</div>
+                <h2>
+                    <span data-i18n="gap-title">Socio-Economic Opportunities Lost Everyday</span>
+                    <button class="btn-speak" onclick="speakKey('gap-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="gap-desc">A statistical breakdown of missed benefits and cybersecurity threats facing low digital-literacy users across the nation.</span>
+                    <button class="btn-speak" onclick="speakKey('gap-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
             <div class="gap-grid scroll-animate">
                 <div class="gap-card glass-card">
                     <div class="gap-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
                     <div class="gap-number" data-target="1500">₹0B</div>
-                    <p>Unclaimed Welfare Subsidies Annually</p>
+                    <p data-i18n="gap-card1-lbl">Unclaimed Welfare Subsidies Annually</p>
                 </div>
                 <div class="gap-card glass-card">
                     <div class="gap-icon"><i class="fa-solid fa-globe"></i></div>
                     <div class="gap-number" data-target="65">0%</div>
-                    <p>Rural Citizens Unaware of Welfare Rights</p>
+                    <p data-i18n="gap-card2-lbl">Rural Citizens Unaware of Welfare Rights</p>
                 </div>
                 <div class="gap-card glass-card">
                     <div class="gap-icon"><i class="fa-solid fa-skull-crossbones"></i></div>
                     <div class="gap-number" data-target="420">0%</div>
-                    <p>Increase in Rural Cybersecurity Fraud</p>
+                    <p data-i18n="gap-card3-lbl">Increase in Rural Cybersecurity Fraud</p>
                 </div>
                 <div class="gap-card glass-card">
                     <div class="gap-icon"><i class="fa-solid fa-language"></i></div>
                     <div class="gap-number" data-target="82">0%</div>
-                    <p>Citizens Hindered by Language Barriers</p>
+                    <p data-i18n="gap-card4-lbl">Citizens Hindered by Language Barriers</p>
                 </div>
             </div>
         </div>
@@ -238,25 +262,31 @@
     <section id="works" class="section-padding" style="background-color: #FFFFFF;">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">HOW IT WORKS</div>
-                <h2>A Secure Path from Discovery to Benefit</h2>
-                <p>GramSathi AI automates the complex pipeline of identifying, checking, and securing welfare eligibility in three simple steps.</p>
+                <div class="badge badge-primary" data-i18n="works-badge">HOW IT WORKS</div>
+                <h2>
+                    <span data-i18n="works-title">A Secure Path from Discovery to Benefit</span>
+                    <button class="btn-speak" onclick="speakKey('works-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="works-desc">GramSathi AI automates the complex pipeline of identifying, checking, and securing welfare eligibility in three simple steps.</span>
+                    <button class="btn-speak" onclick="speakKey('works-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
             <div class="works-grid scroll-animate">
                 <div class="works-step">
                     <div class="works-number">1</div>
-                    <h3>Build Digital Profile</h3>
-                    <p>Enter basic demographics (age, occupation, education, income, and region). Your data stays strictly encrypted on-device.</p>
+                    <h3 data-i18n="works-step1-title">Build Digital Profile</h3>
+                    <p data-i18n="works-step1-desc">Enter basic demographics (age, occupation, education, income, and region). Your data stays strictly encrypted on-device.</p>
                 </div>
                 <div class="works-step">
                     <div class="works-number">2</div>
-                    <h3>Execute Opportunity Radar</h3>
-                    <p>Our cognitive engine parses hundreds of state and federal guidelines to output an instant visual radar map of matches.</p>
+                    <h3 data-i18n="works-step2-title">Execute Opportunity Radar</h3>
+                    <p data-i18n="works-step2-desc">Our cognitive engine parses hundreds of state and federal guidelines to output an instant visual radar map of matches.</p>
                 </div>
                 <div class="works-step">
                     <div class="works-number">3</div>
-                    <h3>Verify via SchemeShield</h3>
-                    <p>Before applying or clicking links, pass website domains and messages through SchemeShield to run authenticity and scam checks.</p>
+                    <h3 data-i18n="works-step3-title">Verify via SchemeShield</h3>
+                    <p data-i18n="works-step3-desc">Before applying or clicking links, pass website domains and messages through SchemeShield to run authenticity and scam checks.</p>
                 </div>
             </div>
         </div>
@@ -268,43 +298,49 @@
     <section id="discovery" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">DISCOVERY ENGINE</div>
-                <h2>Interactive Opportunity Matcher</h2>
-                <p>Input your profile details to dynamically update your Opportunity Radar and discover specific programs matching your parameters.</p>
+                <div class="badge badge-primary" data-i18n="discovery-badge">DISCOVERY ENGINE</div>
+                <h2>
+                    <span data-i18n="discovery-title">Interactive Opportunity Matcher</span>
+                    <button class="btn-speak" onclick="speakKey('discovery-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="discovery-desc">Input your profile details to dynamically update your Opportunity Radar and discover specific programs matching your parameters.</span>
+                    <button class="btn-speak" onclick="speakKey('discovery-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
             
             <div class="discovery-grid scroll-animate">
                 <!-- Profile Form Panel -->
                 <div class="profile-form-container glass-card" id="profile-card">
-                    <h3>Demographic Profile</h3>
-                    <p>Please enter your information to calculate matches</p>
+                    <h3 data-i18n="profile-card-title">Demographic Profile</h3>
+                    <p data-i18n="profile-card-desc">Please enter your information to calculate matches</p>
                     
                     <form id="profile-form" onsubmit="return false;">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="profile-name">Full Name</label>
-                                <input type="text" id="profile-name" class="form-control" placeholder="E.g., Ramesh Kumar" required>
+                                <label for="profile-name" data-i18n="profile-name-lbl">Full Name</label>
+                                <input type="text" id="profile-name" class="form-control" placeholder="E.g., Ramesh Kumar" data-i18n-placeholder="profile-name-placeholder" required>
                             </div>
                             <div class="form-group">
-                                <label for="profile-age">Age</label>
-                                <input type="number" id="profile-age" class="form-control" placeholder="E.g., 42" min="1" max="110" required>
+                                <label for="profile-age" data-i18n="profile-age-lbl">Age</label>
+                                <input type="number" id="profile-age" class="form-control" placeholder="E.g., 42" data-i18n-placeholder="profile-age-placeholder" min="1" max="110" required>
                             </div>
                             <div class="form-group">
-                                <label for="profile-occupation">Occupation</label>
+                                <label for="profile-occupation" data-i18n="profile-occupation-lbl">Occupation</label>
                                 <select id="profile-occupation" class="form-control" required>
-                                    <option value="">Select Occupation</option>
-                                    <option value="Farmer">Farmer / Agriculture</option>
-                                    <option value="Student">Student / Academic</option>
-                                    <option value="JobSeeker">Job Seeker / Unemployed</option>
-                                    <option value="Entrepreneur">Small Business / Entrepreneur</option>
-                                    <option value="Artisan">Artisan / Weaver</option>
-                                    <option value="Retired">Senior Citizen / Retired</option>
+                                    <option value="" data-i18n="profile-occ-default">Select Occupation</option>
+                                    <option value="Farmer" data-i18n="profile-occ-farmer">Farmer / Agriculture</option>
+                                    <option value="Student" data-i18n="profile-occ-student">Student / Academic</option>
+                                    <option value="JobSeeker" data-i18n="profile-occ-seeker">Job Seeker / Unemployed</option>
+                                    <option value="Entrepreneur" data-i18n="profile-occ-ent">Small Business / Entrepreneur</option>
+                                    <option value="Artisan" data-i18n="profile-occ-artisan">Artisan / Weaver</option>
+                                    <option value="Retired" data-i18n="profile-occ-retired">Senior Citizen / Retired</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="profile-state">State</label>
+                                <label for="profile-state" data-i18n="profile-state-lbl">State</label>
                                 <select id="profile-state" class="form-control" required>
-                                    <option value="">Select State</option>
+                                    <option value="" data-i18n="profile-state-default">Select State</option>
                                     <option value="Maharashtra">Maharashtra</option>
                                     <option value="UttarPradesh">Uttar Pradesh</option>
                                     <option value="TamilNadu">Tamil Nadu</option>
@@ -313,38 +349,38 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="profile-education">Education</label>
+                                <label for="profile-education" data-i18n="profile-edu-lbl">Education</label>
                                 <select id="profile-education" class="form-control" required>
-                                    <option value="">Select Education</option>
-                                    <option value="None">Non-Literate / Basic Primary</option>
-                                    <option value="Secondary">High School (10th/12th)</option>
-                                    <option value="Graduate">Graduate / Degree Holder</option>
-                                    <option value="Vocational">Diploma / Vocational Training</option>
+                                    <option value="" data-i18n="profile-edu-default">Select Education</option>
+                                    <option value="None" data-i18n="profile-edu-none">Non-Literate / Basic Primary</option>
+                                    <option value="Secondary" data-i18n="profile-edu-sec">High School (10th/12th)</option>
+                                    <option value="Graduate" data-i18n="profile-edu-grad">Graduate / Degree Holder</option>
+                                    <option value="Vocational" data-i18n="profile-edu-voc">Diploma / Vocational Training</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="profile-income">Monthly Family Income (₹)</label>
-                                <input type="number" id="profile-income" class="form-control" placeholder="E.g., 12000" min="0" required>
+                                <label for="profile-income" data-i18n="profile-income-lbl">Monthly Family Income (₹)</label>
+                                <input type="number" id="profile-income" class="form-control" placeholder="E.g., 12000" data-i18n-placeholder="profile-income-placeholder" min="0" required>
                             </div>
                             <div class="form-group full-width">
-                                <label for="profile-land">Land Ownership</label>
+                                <label for="profile-land" data-i18n="profile-land-lbl">Land Ownership</label>
                                 <select id="profile-land" class="form-control" required>
-                                    <option value="No">No Land Owned</option>
-                                    <option value="Small">Small-scale / Marginal Holder (&lt; 2 Hectares)</option>
-                                    <option value="Large">Large-scale Holder (&gt; 2 Hectares)</option>
+                                    <option value="No" data-i18n="profile-land-no">No Land Owned</option>
+                                    <option value="Small" data-i18n="profile-land-small">Small-scale / Marginal Holder (&lt; 2 Hectares)</option>
+                                    <option value="Large" data-i18n="profile-land-large">Large-scale Holder (&gt; 2 Hectares)</option>
                                 </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary form-btn" id="calculate-score-btn">
-                            <i class="fa-solid fa-calculator"></i> Calculate Opportunity Score
+                            <i class="fa-solid fa-calculator"></i> <span data-i18n="profile-btn-calc">Calculate Opportunity Score</span>
                         </button>
                     </form>
                 </div>
 
                 <!-- Radar & Results Visualizer -->
                 <div class="radar-panel-container glass-card">
-                    <h3>Opportunity Radar</h3>
-                    <p>Click on any category to view specific scheme recommendations</p>
+                    <h3 data-i18n="radar-title">Opportunity Radar</h3>
+                    <p data-i18n="radar-desc">Click on any category to view specific scheme recommendations</p>
                     
                     <div class="radar-wrapper">
                         <!-- Custom Dynamic SVG Radar Chart -->
@@ -359,42 +395,42 @@
                             <div class="radar-category-item active" data-category="Agriculture">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #22C55E;"></span>
-                                    <span>Agriculture</span>
+                                    <span data-i18n="radar-cat-agri">Agriculture</span>
                                 </div>
                                 <span class="cat-count" id="count-agri">0</span>
                             </div>
                             <div class="radar-category-item" data-category="Education">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #3B82F6;"></span>
-                                    <span>Education</span>
+                                    <span data-i18n="radar-cat-edu">Education</span>
                                 </div>
                                 <span class="cat-count" id="count-edu">0</span>
                             </div>
                             <div class="radar-category-item" data-category="Healthcare">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #EF4444;"></span>
-                                    <span>Healthcare</span>
+                                    <span data-i18n="radar-cat-health">Healthcare</span>
                                 </div>
                                 <span class="cat-count" id="count-health">0</span>
                             </div>
                             <div class="radar-category-item" data-category="Employment">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #F59E0B;"></span>
-                                    <span>Employment</span>
+                                    <span data-i18n="radar-cat-emp">Employment</span>
                                 </div>
                                 <span class="cat-count" id="count-emp">0</span>
                             </div>
                             <div class="radar-category-item" data-category="Entrepreneurship">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #EC4899;"></span>
-                                    <span>Entrepreneurship</span>
+                                    <span data-i18n="radar-cat-ent">Entrepreneurship</span>
                                 </div>
                                 <span class="cat-count" id="count-ent">0</span>
                             </div>
                             <div class="radar-category-item" data-category="Finance">
                                 <div class="cat-label">
                                     <span class="cat-color-dot" style="background-color: #8B5CF6;"></span>
-                                    <span>Finance</span>
+                                    <span data-i18n="radar-cat-fin">Finance</span>
                                 </div>
                                 <span class="cat-count" id="count-fin">0</span>
                             </div>
@@ -405,8 +441,8 @@
                     <div class="discovery-results-panel">
                         <div class="score-display-row">
                             <div class="score-text-block">
-                                <h4 id="results-headline">Complete your profile</h4>
-                                <p id="results-subheading">Submit demographic details to see eligible schemes.</p>
+                                <h4 id="results-headline" data-i18n="results-headline-default">Complete your profile</h4>
+                                <p id="results-subheading" data-i18n="results-subheading-default">Submit demographic details to see eligible schemes.</p>
                             </div>
                             <div class="score-radial-progress">
                                 <svg class="radial-svg" width="90" height="90" viewBox="0 0 100 100">
@@ -420,7 +456,9 @@
                         <!-- Recommendations list placeholder -->
                         <div class="recommended-schemes-list" id="schemes-list">
                             <div class="scheme-result-card" style="justify-content: center; border-style: dashed; padding: 2rem;">
-                                <p style="color: var(--text-muted); font-size: 0.95rem;"><i class="fa-solid fa-circle-info"></i> No profile calculated yet. Please fill out the form.</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                    <i class="fa-solid fa-circle-info"></i> <span data-i18n="results-placeholder">No profile calculated yet. Please fill out the form.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -435,33 +473,39 @@
     <section id="simulator" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">GROWTH SIMULATOR</div>
-                <h2>Future Impact Projections</h2>
-                <p>Project how enrolling in eligible welfare schemes can step-up your family's monthly income and support long-term upward mobility.</p>
+                <div class="badge badge-primary" data-i18n="sim-badge">GROWTH SIMULATOR</div>
+                <h2>
+                    <span data-i18n="sim-title">Future Impact Projections</span>
+                    <button class="btn-speak" onclick="speakKey('sim-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="sim-desc">Project how enrolling in eligible welfare schemes can step-up your family's monthly income and support long-term upward mobility.</span>
+                    <button class="btn-speak" onclick="speakKey('sim-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
             
             <div class="simulator-grid scroll-animate">
                 <!-- Slider Panel -->
                 <div class="simulator-panel glass-card">
-                    <h3>Income parameters</h3>
-                    <p>Adjust baseline parameters and toggle available welfare payouts</p>
+                    <h3 data-i18n="sim-params-title">Income parameters</h3>
+                    <p data-i18n="sim-params-desc">Adjust baseline parameters and toggle available welfare payouts</p>
                     
                     <div class="slider-group">
                         <div class="slider-header">
-                            <span>Base Monthly Income</span>
+                            <span data-i18n="sim-base-income-lbl">Base Monthly Income</span>
                             <span class="slider-val" id="base-income-val">₹8,000</span>
                         </div>
                         <input type="range" id="base-income-slider" class="slider-range" min="3000" max="25000" step="500" value="8000">
                     </div>
 
-                    <div class="simulator-toggles-title">Select Schemes to Apply</div>
+                    <div class="simulator-toggles-title" data-i18n="sim-select-schemes">Select Schemes to Apply</div>
                     
                     <div class="toggles-list">
                         <!-- Toggle items -->
                         <div class="toggle-item active" data-scheme="pm-kisan" data-amt="500">
                             <div class="toggle-details">
-                                <span class="toggle-name">PM Kisan Samman Nidhi</span>
-                                <span class="toggle-amount">+₹500 / month (₹6,000/yr)</span>
+                                <span class="toggle-name" data-i18n="sim-scheme1-name">PM Kisan Samman Nidhi</span>
+                                <span class="toggle-amount" data-i18n="sim-scheme1-amt">+₹500 / month (₹6,000/yr)</span>
                             </div>
                             <label class="switch">
                                 <input type="checkbox" id="toggle-pmkisan" checked>
@@ -471,30 +515,30 @@
                         
                         <div class="toggle-item" data-scheme="scholarship" data-amt="1500">
                             <div class="toggle-details">
-                                <span class="toggle-name">Post-Matric Student Scholarship</span>
-                                <span class="toggle-amount">+₹1,500 / month (₹18,000/yr)</span>
+                                <span class="toggle-name" data-i18n="sim-scheme2-name">Post-Matric Student Scholarship</span>
+                                <span class="toggle-amount" data-i18n="sim-scheme2-amt">+₹1,500 / month (₹18,000/yr)</span>
                             </div>
                             <label class="switch">
                                 <input type="checkbox" id="toggle-scholarship">
                                 <span class="slider-switch"></span>
                             </label>
                         </div>
-
+ 
                         <div class="toggle-item" data-scheme="skill-dev" data-amt="3500">
                             <div class="toggle-details">
-                                <span class="toggle-name">PM Skill Development Job Placement</span>
-                                <span class="toggle-amount">+₹3,500 / month (Avg boost)</span>
+                                <span class="toggle-name" data-i18n="sim-scheme3-name">PM Skill Development Job Placement</span>
+                                <span class="toggle-amount" data-i18n="sim-scheme3-amt">+₹3,500 / month (Avg boost)</span>
                             </div>
                             <label class="switch">
                                 <input type="checkbox" id="toggle-skill-dev">
                                 <span class="slider-switch"></span>
                             </label>
                         </div>
-
+ 
                         <div class="toggle-item" data-scheme="solar-subsidy" data-amt="2500">
                             <div class="toggle-details">
-                                <span class="toggle-name">PM Surya Ghar Solar Subsidy (Savings)</span>
-                                <span class="toggle-amount">+₹2,500 / month (Reduced bill)</span>
+                                <span class="toggle-name" data-i18n="sim-scheme4-name">PM Surya Ghar Solar Subsidy (Savings)</span>
+                                <span class="toggle-amount" data-i18n="sim-scheme4-amt">+₹2,500 / month (Reduced bill)</span>
                             </div>
                             <label class="switch">
                                 <input type="checkbox" id="toggle-solar">
@@ -503,20 +547,20 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Simulation Visual Projection -->
                 <div class="simulator-visual glass-card">
                     <div class="proj-display-header">
                         <div class="proj-stat-box">
-                            <h4>Current Baseline</h4>
+                            <h4 data-i18n="sim-baseline-lbl">Current Baseline</h4>
                             <span class="proj-num" id="stat-baseline">₹8,000</span>
                         </div>
                         <div class="proj-stat-box" style="text-align: right;">
-                            <h4>Projected Income</h4>
+                            <h4 data-i18n="sim-projected-lbl">Projected Income</h4>
                             <span class="proj-num highlight" id="stat-projected">₹8,500</span>
                         </div>
                     </div>
-
+ 
                     <!-- Dynamic SVG Projection Chart -->
                     <div class="proj-graph-area">
                         <svg class="proj-graph-svg" id="simulator-svg" viewBox="0 0 500 220">
@@ -532,25 +576,25 @@
                             <line class="chart-grid-line" x1="50" y1="70" x2="480" y2="70"></line>
                             <line class="chart-grid-line" x1="50" y1="120" x2="480" y2="120"></line>
                             <line class="chart-grid-line" x1="50" y1="170" x2="480" y2="170"></line>
-
+ 
                             <!-- Y-Axis Labels -->
                             <text class="chart-axis-label" x="40" y="24" text-anchor="end">₹30K</text>
                             <text class="chart-axis-label" x="40" y="74" text-anchor="end">₹20K</text>
                             <text class="chart-axis-label" x="40" y="124" text-anchor="end">₹10K</text>
                             <text class="chart-axis-label" x="40" y="174" text-anchor="end">₹0K</text>
-
+ 
                             <!-- X-Axis Labels -->
-                            <text class="chart-axis-label" x="50" y="195" text-anchor="middle">Baseline</text>
-                            <text class="chart-axis-label" x="193" y="195" text-anchor="middle">PM Kisan</text>
-                            <text class="chart-axis-label" x="336" y="195" text-anchor="middle">Skill Dev</text>
-                            <text class="chart-axis-label" x="480" y="195" text-anchor="middle">Surya Solar</text>
-
+                            <text class="chart-axis-label" x="50" y="195" text-anchor="middle" data-i18n="sim-chart-x-base">Baseline</text>
+                            <text class="chart-axis-label" x="193" y="195" text-anchor="middle" data-i18n="sim-chart-x-kisan">PM Kisan</text>
+                            <text class="chart-axis-label" x="336" y="195" text-anchor="middle" data-i18n="sim-chart-x-skill">Skill Dev</text>
+                            <text class="chart-axis-label" x="480" y="195" text-anchor="middle" data-i18n="sim-chart-x-solar">Surya Solar</text>
+ 
                             <!-- Filled Gradient Path -->
                             <path class="chart-line-bg" d="M 50 170 L 193 170 L 336 170 L 480 170 L 480 170 L 50 170 Z"></path>
-
+ 
                             <!-- Stroke Line Path -->
                             <path class="chart-line" d="M 50 170 L 193 170 L 336 170 L 480 170"></path>
-
+ 
                             <!-- Markers -->
                             <circle class="chart-marker" id="mark-0" cx="50" cy="170"></circle>
                             <circle class="chart-marker" id="mark-1" cx="193" cy="170"></circle>
@@ -560,7 +604,7 @@
                     </div>
                     
                     <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin: 0;">
-                        <i class="fa-solid fa-chart-line"></i> Graph shows cumulative projection. Projections are estimations based on average placements.
+                        <i class="fa-solid fa-chart-line"></i> <span data-i18n="sim-chart-note">Graph shows cumulative projection. Projections are estimations based on average placements.</span>
                     </p>
                 </div>
             </div>
@@ -573,28 +617,34 @@
     <section id="schemeshield" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-danger">CYBER SECURITY</div>
-                <h2>SchemeShield AI Scan</h2>
-                <p>Instantly evaluate schemes, messages, or portals. Our AI parses links, flags phishing attempts, and maps domains to official state domains.</p>
+                <div class="badge badge-danger" data-i18n="shield-badge">CYBER SECURITY</div>
+                <h2>
+                    <span data-i18n="shield-title">SchemeShield AI Scan</span>
+                    <button class="btn-speak" onclick="speakKey('shield-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="shield-desc">Instantly evaluate schemes, messages, or portals. Our AI parses links, flags phishing attempts, and maps domains to official state domains.</span>
+                    <button class="btn-speak" onclick="speakKey('shield-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
 
             <div class="shield-grid scroll-animate">
                 <!-- Shield Input Panel -->
                 <div class="shield-panel glass-card">
-                    <h3>Threat Analyzer</h3>
-                    <p>Paste website links, upload portal screenshots, or paste doubtful SMS prompts</p>
+                    <h3 data-i18n="shield-panel-title">Threat Analyzer</h3>
+                    <p data-i18n="shield-panel-desc">Paste website links, upload portal screenshots, or paste doubtful SMS prompts</p>
                     
                     <div class="shield-tabs">
-                        <span class="shield-tab active" data-tab="url"><i class="fa-solid fa-link"></i> Website URL</span>
-                        <span class="shield-tab" data-tab="upload"><i class="fa-solid fa-file-arrow-up"></i> Upload Screenshot</span>
-                        <span class="shield-tab" data-tab="message"><i class="fa-solid fa-message"></i> SMS / WhatsApp</span>
+                        <span class="shield-tab active" data-tab="url"><i class="fa-solid fa-link"></i> <span data-i18n="shield-tab-url">Website URL</span></span>
+                        <span class="shield-tab" data-tab="upload"><i class="fa-solid fa-file-arrow-up"></i> <span data-i18n="shield-tab-upload">Upload Screenshot</span></span>
+                        <span class="shield-tab" data-tab="message"><i class="fa-solid fa-message"></i> <span data-i18n="shield-tab-message">SMS / WhatsApp</span></span>
                     </div>
 
                     <div class="shield-input-container">
                         <!-- URL Pane -->
                         <div class="shield-pane active" id="pane-url">
                             <div class="shield-url-input">
-                                <input type="url" id="shield-url" class="form-control" style="flex: 1;" placeholder="E.g., http://pmkisan-subsidy-free.in">
+                                <input type="url" id="shield-url" class="form-control" style="flex: 1;" placeholder="E.g., http://pmkisan-subsidy-free.in" data-i18n-placeholder="shield-url-placeholder">
                             </div>
                         </div>
 
@@ -602,20 +652,20 @@
                         <div class="shield-pane" id="pane-upload">
                             <div class="shield-file-dropzone" id="shield-dropzone">
                                 <i class="fa-solid fa-cloud-arrow-up"></i>
-                                <p style="font-weight: 600; margin-bottom: 0.25rem;">Drag and drop screenshot or scheme PDF here</p>
-                                <p style="font-size: 0.75rem;">Supports PNG, JPG, PDF up to 5MB</p>
+                                <p style="font-weight: 600; margin-bottom: 0.25rem;" data-i18n="shield-upload-drag">Drag and drop screenshot or scheme PDF here</p>
+                                <p style="font-size: 0.75rem;" data-i18n="shield-upload-limit">Supports PNG, JPG, PDF up to 5MB</p>
                                 <input type="file" id="shield-file-input" style="display: none;" accept="image/*,.pdf">
                             </div>
                         </div>
 
                         <!-- Message Pane -->
                         <div class="shield-pane" id="pane-message">
-                            <textarea id="shield-text" class="shield-textarea" placeholder="Paste the message content here... E.g., 'Congratulations! You are selected for Pradhan Mantri Balika grant. Send Rs. 499 processing fee on link...'"></textarea>
+                            <textarea id="shield-text" class="shield-textarea" placeholder="Paste the message content here... E.g., 'Congratulations! You are selected for Pradhan Mantri Balika grant. Send Rs. 499 processing fee on link...'" data-i18n-placeholder="shield-text-placeholder"></textarea>
                         </div>
                     </div>
 
                     <button class="btn btn-primary" id="run-shield-btn" style="width: 100%; justify-content: center;">
-                        <i class="fa-solid fa-shield-halved"></i> Run Security Scan
+                        <i class="fa-solid fa-shield-halved"></i> <span data-i18n="shield-btn-scan">Run Security Scan</span>
                     </button>
                 </div>
 
@@ -627,16 +677,16 @@
                             <i class="fa-solid fa-shield-cat"></i>
                         </div>
                         <div class="shield-state-idle">
-                            <h4>System Idle & Protected</h4>
-                            <p>Enter data and click "Run Security Scan" to check for cyber threats.</p>
+                            <h4 data-i18n="shield-idle-title">System Idle & Protected</h4>
+                            <p data-i18n="shield-idle-desc">Enter data and click "Run Security Scan" to check for cyber threats.</p>
                         </div>
                     </div>
 
                     <!-- Scanning State -->
                     <div class="shield-state" id="shield-state-scanning">
                         <div class="shield-scanning-ring"></div>
-                        <div class="shield-scanning-status" id="scan-step-text">Parsing domain headers...</div>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Parsing metadata and analyzing suspicious patterns...</p>
+                        <div class="shield-scanning-status" id="scan-step-text" data-i18n="shield-scanning-title">Parsing domain headers...</div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="shield-scanning-desc">Parsing metadata and analyzing suspicious patterns...</p>
                     </div>
 
                     <!-- Report Verification Result State -->
@@ -656,16 +706,22 @@
     <section id="assistant" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">AI COMPANION</div>
-                <h2>Speak with GramSathi AI</h2>
-                <p>Have eligibility questions? Try our multilingual voice-enabled assistant to get guidance in local languages.</p>
+                <div class="badge badge-primary" data-i18n="assistant-badge">AI COMPANION</div>
+                <h2>
+                    <span data-i18n="assistant-title">Speak with GramSathi AI</span>
+                    <button class="btn-speak" onclick="speakKey('assistant-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="assistant-desc">Have eligibility questions? Try our multilingual voice-enabled assistant to get guidance in local languages.</span>
+                    <button class="btn-speak" onclick="speakKey('assistant-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
 
             <div class="assistant-grid scroll-animate">
                 <!-- Info & Questions panel -->
                 <div class="assistant-info glass-card">
-                    <h3>Multilingual Dialog</h3>
-                    <p>Select your language to view simulated queries or start chatting</p>
+                    <h3 data-i18n="assistant-info-title">Multilingual Dialog</h3>
+                    <p data-i18n="assistant-info-desc">Select your language to view simulated queries or start chatting</p>
                     
                     <div class="assistant-lang-support" id="assistant-langs">
                         <span class="lang-pill active" data-lang="en">English</span>
@@ -687,19 +743,19 @@
                         <div class="chat-user-profile">
                             <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
                             <div class="chat-user-status">
-                                <h4>GramSathi Companion</h4>
-                                <span>Online</span>
+                                <h4 data-i18n="chat-name">GramSathi Companion</h4>
+                                <span data-i18n="chat-online">Online</span>
                             </div>
                         </div>
                         <div style="font-size: 0.85rem; color: var(--text-muted);">
-                            <span id="voice-indicator"><i class="fa-solid fa-volume-high"></i> Voice Enabled</span>
+                            <span id="voice-indicator"><i class="fa-solid fa-volume-high"></i> <span data-i18n="chat-voice-enabled">Voice Enabled</span></span>
                         </div>
                     </div>
 
                     <!-- Messages wrapper -->
                     <div class="chat-body" id="chat-body">
                         <div class="chat-message bot">
-                            Hello! I am your GramSathi AI assistant. Ask me anything about government schemes, eligibility, or cyber safety.
+                            <span data-i18n="chat-bot-default">Hello! I am your GramSathi AI assistant. Ask me anything about government schemes, eligibility, or cyber safety.</span>
                             <span class="chat-message-time">20:00</span>
                         </div>
                     </div>
@@ -708,7 +764,7 @@
                     <div class="chat-footer">
                         <form id="chat-form" onsubmit="return false;">
                             <div class="chat-input-row">
-                                <input type="text" id="chat-input" class="chat-input" placeholder="Type your query...">
+                                <input type="text" id="chat-input" class="chat-input" placeholder="Type your query..." data-i18n-placeholder="chat-input-placeholder">
                                 <button type="button" class="chat-voice-btn" id="voice-input-btn" title="Simulate Voice Input">
                                     <i class="fa-solid fa-microphone"></i>
                                 </button>
@@ -729,9 +785,15 @@
     <section id="village-dashboard" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">REGIONAL ANALYTICS</div>
-                <h2>Village Intelligence Dashboard</h2>
-                <p>Aggregating regional demographic data to show missed subsidies, scam alerts, and financial inclusion scores for communities.</p>
+                <div class="badge badge-primary" data-i18n="db-badge">REGIONAL ANALYTICS</div>
+                <h2>
+                    <span data-i18n="db-title">Village Intelligence Dashboard</span>
+                    <button class="btn-speak" onclick="speakKey('db-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="db-desc">Aggregating regional demographic data to show missed subsidies, scam alerts, and financial inclusion scores for communities.</span>
+                    <button class="btn-speak" onclick="speakKey('db-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
 
             <!-- Filters -->
@@ -755,8 +817,8 @@
 
             <!-- Interactive Map Container -->
             <div class="map-panel glass-card scroll-animate" style="margin-bottom: 3rem; padding: 2.5rem; text-align: center;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Interactive District Vulnerability & Opportunity Map</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Select a region below to audit regional metrics, unclaimed subsidies, and cybersecurity alerts.</p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="map-title">Interactive District Vulnerability & Opportunity Map</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;" data-i18n="map-desc">Select a region below to audit regional metrics, unclaimed subsidies, and cybersecurity alerts.</p>
                 <div class="map-wrapper" style="max-width: 480px; margin: 0 auto; position: relative;">
                     <svg id="interactive-map-svg" viewBox="0 0 400 300" style="width: 100%; height: auto;">
                         <!-- Nashik District -->
@@ -778,42 +840,41 @@
             <div class="dashboard-grid scroll-animate">
                 <div class="dashboard-stat-card glass-card">
                     <div class="db-card-header">
-                        <h4>Unclaimed Welfare Subsidies</h4>
+                        <h4 data-i18n="db-card1-title">Unclaimed Welfare Subsidies</h4>
                         <i class="fa-solid fa-indian-rupee-sign"></i>
                     </div>
                     <div class="db-card-value" id="db-val-subsidies">₹2.4M</div>
                     <div class="db-card-trend down">
-                        <i class="fa-solid fa-arrow-down-long"></i> 14% drop from last quarter
+                        <i class="fa-solid fa-arrow-down-long"></i> <span data-i18n="db-card1-trend">14% drop from last quarter</span>
                     </div>
                 </div>
 
                 <div class="dashboard-stat-card glass-card">
                     <div class="db-card-header">
-                        <h4>Cyber Threat Alerts</h4>
+                        <h4 data-i18n="db-card2-title">Cyber Threat Alerts</h4>
                         <i class="fa-solid fa-shield-virus" style="color: #EF4444;"></i>
                     </div>
                     <div class="db-card-value" id="db-val-scams" style="color: #EF4444;">12</div>
                     <div class="db-card-trend up" style="color: #EF4444;">
-                        <i class="fa-solid fa-arrow-up-long"></i> 3 active scam sites detected
+                        <i class="fa-solid fa-arrow-up-long"></i> <span data-i18n="db-card2-trend">3 active scam sites detected</span>
                     </div>
                 </div>
 
-                <div class="dashboard-stat-card glass-card">
                     <div class="db-card-header">
-                        <h4>Financial Inclusion Score</h4>
+                        <h4 data-i18n="db-card3-title">Financial Inclusion Score</h4>
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <div class="db-card-value" id="db-val-inclusion">82%</div>
                     <div class="db-card-trend up">
-                        <i class="fa-solid fa-arrow-up-long"></i> 5% growth in digital accounts
+                        <i class="fa-solid fa-arrow-up-long"></i> <span data-i18n="db-card3-trend">5% growth in digital accounts</span>
                     </div>
                 </div>
 
                 <!-- Unclaimed details list -->
                 <div class="dashboard-wide-card glass-card">
                     <div class="wide-card-header">
-                        <h3>Missed Subsidies Breakdowns</h3>
-                        <div class="badge badge-primary">VILLAGE LEVEL ANALYSIS</div>
+                        <h3 data-i18n="db-wide-title">Missed Subsidies Breakdowns</h3>
+                        <div class="badge badge-primary" data-i18n="db-wide-badge">VILLAGE LEVEL ANALYSIS</div>
                     </div>
 
                     <div class="subsidy-bar-grid" id="dashboard-bars">
@@ -830,41 +891,47 @@
     <section id="stories" class="section-padding">
         <div class="container">
             <div class="section-header scroll-animate">
-                <div class="badge badge-primary">COMMUNITY IMPACT</div>
-                <h2>Citizen Impact Stories</h2>
-                <p>Read about citizens who successfully secured subsidies or deflected online scams using the platform.</p>
+                <div class="badge badge-primary" data-i18n="stories-badge">COMMUNITY IMPACT</div>
+                <h2>
+                    <span data-i18n="stories-title">Citizen Impact Stories</span>
+                    <button class="btn-speak" onclick="speakKey('stories-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="stories-desc">Read about citizens who successfully secured subsidies or deflected online scams using the platform.</span>
+                    <button class="btn-speak" onclick="speakKey('stories-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
             </div>
 
             <div class="stories-carousel-wrapper scroll-animate">
                 <div class="stories-container" id="stories-container">
                     <!-- Slide 1 -->
                     <div class="story-slide">
-                        <div class="story-quote">
+                        <div class="story-quote" data-i18n="story1-quote">
                             "I received a WhatsApp link promising 90% solar pump subsidies. Before paying the ₹1,500 registration fee, I checked it via SchemeShield. The tool flagged it as a fake government domain. GramSathi AI saved my hard-earned savings!"
                         </div>
                         <div class="story-author">
                             <h4>Baldev Singh</h4>
-                            <span>Farmer, Nashik District</span>
+                            <span data-i18n="story1-author-job">Farmer, Nashik District</span>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="story-slide">
-                        <div class="story-quote">
+                        <div class="story-quote" data-i18n="story2-quote">
                             "Finding scholarships used to take weeks of visiting offices. GramSathi analyzed my college student profile and recommended the Post-Matric program in Marathi. I got verified and my fees are sponsored."
                         </div>
                         <div class="story-author">
                             <h4>Pooja Kadam</h4>
-                            <span>Undergraduate Student, Pune</span>
+                            <span data-i18n="story2-author-job">Undergraduate Student, Pune</span>
                         </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="story-slide">
-                        <div class="story-quote">
+                        <div class="story-quote" data-i18n="story3-quote">
                             "Starting my small tailoring business was difficult until the platform matched me with Stand-Up India. Within 2 months, I secured a mudra financial loan with zero collateral."
                         </div>
                         <div class="story-author">
                             <h4>Savitha Rao</h4>
-                            <span>Women Entrepreneur, Junnar</span>
+                            <span data-i18n="story3-author-job">Women Entrepreneur, Junnar</span>
                         </div>
                     </div>
                 </div>
@@ -893,33 +960,39 @@
     <section id="vision" class="section-padding">
         <div class="container scroll-animate">
             <div class="vision-content">
-                <div class="badge badge-primary" style="background-color: rgba(255,255,255,0.1); color: #FFFFFF; border-color: rgba(255,255,255,0.2);">
+                <div class="badge badge-primary" style="background-color: rgba(255,255,255,0.1); color: #FFFFFF; border-color: rgba(255,255,255,0.2);" data-i18n="vision-badge">
                     THE NATIONAL VISION
                 </div>
-                <h2 class="vision-title">Empowering 250 Million Rural Households</h2>
-                <p class="vision-desc">Our vision is to scale GramSathi AI across every block and gram panchayat in India, eliminating intermediate leakages and creating a secure, scam-free digital welfare network.</p>
+                <h2 class="vision-title">
+                    <span data-i18n="vision-title">Empowering 250 Million Rural Households</span>
+                    <button class="btn-speak" onclick="speakKey('vision-title')" aria-label="Listen to title"><i class="fa-solid fa-volume-high"></i></button>
+                </h2>
+                <p>
+                    <span data-i18n="vision-desc">Our vision is to scale GramSathi AI across every block and gram panchayat in India, eliminating intermediate leakages and creating a secure, scam-free digital welfare network.</span>
+                    <button class="btn-speak" onclick="speakKey('vision-desc')" aria-label="Listen to description"><i class="fa-solid fa-volume-high"></i></button>
+                </p>
                 
                 <div class="vision-stats-grid">
                     <div class="vision-stat-item">
                         <h3>99.9%</h3>
-                        <p>Scam Detection Rate</p>
+                        <p data-i18n="vision-stat1-lbl">Scam Detection Rate</p>
                     </div>
                     <div class="vision-stat-item">
                         <h3>22+</h3>
-                        <p>Scheduled Languages Support</p>
+                        <p data-i18n="vision-stat2-lbl">Scheduled Languages Support</p>
                     </div>
                     <div class="vision-stat-item">
                         <h3>₹10,000Cr</h3>
-                        <p>Direct Benefit Security Goal</p>
+                        <p data-i18n="vision-stat3-lbl">Direct Benefit Security Goal</p>
                     </div>
                 </div>
 
                 <div class="vision-ctas">
                     <a href="#discovery" class="btn btn-primary vision-btn-primary">
-                        <i class="fa-solid fa-passport"></i> Check Your Eligible Subsidies
+                        <i class="fa-solid fa-passport"></i> <span data-i18n="vision-btn-discover">Check Your Eligible Subsidies</span>
                     </a>
                     <a href="#schemeshield" class="btn btn-secondary vision-btn-secondary">
-                        <i class="fa-solid fa-shield-halved"></i> Report A Online scam
+                        <i class="fa-solid fa-shield-halved"></i> <span data-i18n="vision-btn-report">Report A Online scam</span>
                     </a>
                 </div>
             </div>
@@ -935,9 +1008,9 @@
                 <div class="footer-col-1">
                     <a href="#" class="footer-logo">
                         <i class="fa-solid fa-compass-drafting" style="color: var(--primary-light);"></i>
-                        <span>GramSathi AI</span>
+                        <span data-i18n="footer-logo-text">GramSathi AI</span>
                     </a>
-                    <p class="footer-desc">AI-powered Opportunity Discovery & Cyber Safety Platform. Empathetic technology built to safeguard and empower India's rural and semi-urban communities.</p>
+                    <p class="footer-desc" data-i18n="footer-desc">AI-powered Opportunity Discovery & Cyber Safety Platform. Empathetic technology built to safeguard and empower India's rural and semi-urban communities.</p>
                     <div class="footer-socials">
                         <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                         <a href="#" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -947,41 +1020,41 @@
                 </div>
 
                 <div class="footer-links-col">
-                    <h4>Discovery Portals</h4>
+                    <h4 data-i18n="footer-col-discovery">Discovery Portals</h4>
                     <ul>
-                        <li><a href="#discovery">Farmers Subsidies</a></li>
-                        <li><a href="#discovery">Scholarships Finder</a></li>
-                        <li><a href="#discovery">Healthcare Subsidies</a></li>
-                        <li><a href="#discovery">Skills Training Programs</a></li>
+                        <li><a href="#discovery" data-i18n="footer-link-farmers">Farmers Subsidies</a></li>
+                        <li><a href="#discovery" data-i18n="footer-link-scholars">Scholarships Finder</a></li>
+                        <li><a href="#discovery" data-i18n="footer-link-health">Healthcare Subsidies</a></li>
+                        <li><a href="#discovery" data-i18n="footer-link-skills">Skills Training Programs</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links-col">
-                    <h4>Cyber Safety</h4>
+                    <h4 data-i18n="footer-col-safety">Cyber Safety</h4>
                     <ul>
-                        <li><a href="#schemeshield">Link Verification</a></li>
-                        <li><a href="#schemeshield">Report Fake Portals</a></li>
-                        <li><a href="#schemeshield">Fraud Alert Feeds</a></li>
-                        <li><a href="#assistant">Digital Literacy Assistant</a></li>
+                        <li><a href="#schemeshield" data-i18n="footer-link-verify">Link Verification</a></li>
+                        <li><a href="#schemeshield" data-i18n="footer-link-report">Report Fake Portals</a></li>
+                        <li><a href="#schemeshield" data-i18n="footer-link-feeds">Fraud Alert Feeds</a></li>
+                        <li><a href="#assistant" data-i18n="footer-link-assistant">Digital Literacy Assistant</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-newsletter">
-                    <h4>Subscribe to Cyber Alerts</h4>
-                    <p>Get weekly updates about trending scam designs and newly released government subsidy programs.</p>
+                    <h4 data-i18n="footer-col-news">Subscribe to Cyber Alerts</h4>
+                    <p data-i18n="footer-news-desc">Get weekly updates about trending scam designs and newly released government subsidy programs.</p>
                     <form class="newsletter-form" onsubmit="return false;">
-                        <input type="email" class="newsletter-input" placeholder="Enter email address" required>
-                        <button class="newsletter-btn" type="submit">Join</button>
+                        <input type="email" class="newsletter-input" placeholder="Enter email address" data-i18n-placeholder="footer-news-placeholder" required>
+                        <button class="newsletter-btn" type="submit" data-i18n="footer-news-btn">Join</button>
                     </form>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 GramSathi AI. Built under National Digital Governance Hackathon Initiative.</p>
+                <p data-i18n="footer-bottom-copy">&copy; 2026 GramSathi AI. Built under National Digital Governance Hackathon Initiative.</p>
                 <div class="footer-policies">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Report Threat API</a>
+                    <a href="#" data-i18n="footer-policy-privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer-policy-terms">Terms of Service</a>
+                    <a href="#" data-i18n="footer-policy-api">Report Threat API</a>
                 </div>
             </div>
         </div>
@@ -1001,25 +1074,25 @@
                         <circle cx="50" cy="50" r="10" fill="#FFFFFF" stroke="#15803D" stroke-width="4"/>
                     </svg>
                     <div>
-                        <h2 style="font-size: 1.4rem; margin: 0;">GramSathi AI Portal</h2>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">National Welfare Verification Certificate</span>
+                        <h2 style="font-size: 1.4rem; margin: 0;" data-i18n="modal-title">GramSathi AI Portal</h2>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="modal-subtitle">National Welfare Verification Certificate</span>
                     </div>
                 </div>
                 
                 <div class="certificate-body">
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">This document verifies eligibility parameters processed under the GramSathi Cognitive Intelligence Engine.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;" data-i18n="modal-desc">This document verifies eligibility parameters processed under the GramSathi Cognitive Intelligence Engine.</p>
                     
                     <div class="cert-grid">
-                        <div class="cert-item"><strong>Applicant Name:</strong> <span id="cert-name">Ramesh Kumar</span></div>
-                        <div class="cert-item"><strong>Age / Gender:</strong> <span id="cert-age">42 Years</span></div>
-                        <div class="cert-item"><strong>Occupation:</strong> <span id="cert-occupation">Farmer / Agriculture</span></div>
-                        <div class="cert-item"><strong>State / District:</strong> <span id="cert-region">Maharashtra / Pune</span></div>
-                        <div class="cert-item"><strong>Opportunity Score:</strong> <span id="cert-score">84% Match</span></div>
-                        <div class="cert-item"><strong>Monthly Income:</strong> <span id="cert-income">₹8,000</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-name-lbl">Applicant Name:</strong> <span id="cert-name">Ramesh Kumar</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-age-lbl">Age / Gender:</strong> <span id="cert-age">42 Years</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-occupation-lbl">Occupation:</strong> <span id="cert-occupation">Farmer / Agriculture</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-region-lbl">State / District:</strong> <span id="cert-region">Maharashtra / Pune</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-score-lbl">Opportunity Score:</strong> <span id="cert-score">84% Match</span></div>
+                        <div class="cert-item"><strong data-i18n="modal-income-lbl">Monthly Income:</strong> <span id="cert-income">₹8,000</span></div>
                     </div>
                     
                     <div class="cert-scheme-section">
-                        <h4>Calculated Eligibility Target</h4>
+                        <h4 data-i18n="modal-target-title">Calculated Eligibility Target</h4>
                         <div id="cert-scheme-details">
                             <!-- Scheme details go here -->
                         </div>
@@ -1028,12 +1101,12 @@
                     <div class="cert-footer">
                         <div class="cert-qr-box">
                             <i class="fa-solid fa-qrcode" style="font-size: 3rem; color: var(--bg-dark);"></i>
-                            <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">SCAN SECURE KYC</span>
+                            <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;" data-i18n="modal-qr-lbl">SCAN SECURE KYC</span>
                         </div>
                         <div style="text-align: right; font-size: 0.8rem;">
-                            <span style="display: block; font-weight: 700;">Government of India</span>
-                            <span style="display: block; color: var(--text-muted);">Cognitive Welfare Agency</span>
-                            <span style="display: block; font-size: 0.65rem; margin-top: 0.5rem; color: var(--primary);">STATUS: ACTIVE / VERIFIED</span>
+                            <span style="display: block; font-weight: 700;" data-i18n="modal-gov-lbl">Government of India</span>
+                            <span style="display: block; color: var(--text-muted);" data-i18n="modal-agency-lbl">Cognitive Welfare Agency</span>
+                            <span style="display: block; font-size: 0.65rem; margin-top: 0.5rem; color: var(--primary);" data-i18n="modal-status-lbl">STATUS: ACTIVE / VERIFIED</span>
                         </div>
                     </div>
                 </div>
@@ -1041,9 +1114,9 @@
             
             <div class="modal-actions">
                 <button class="btn btn-primary" onclick="window.print()">
-                    <i class="fa-solid fa-print"></i> Print / Save PDF
+                    <i class="fa-solid fa-print"></i> <span data-i18n="modal-btn-print">Print / Save PDF</span>
                 </button>
-                <button class="btn btn-secondary" id="close-modal-bottom-btn">Close</button>
+                <button class="btn btn-secondary" id="close-modal-bottom-btn" data-i18n="modal-btn-close">Close</button>
             </div>
         </div>
     </div>

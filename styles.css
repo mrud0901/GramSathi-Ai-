@@ -930,7 +930,7 @@ header.scrolled {
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
     gap: 3.5rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* Profile Form */
@@ -1203,7 +1203,7 @@ header.scrolled {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: stretch;
 }
 
 .simulator-panel {
@@ -1445,7 +1445,7 @@ input:checked + .slider-switch:before {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .shield-panel {
@@ -1737,7 +1737,7 @@ input:checked + .slider-switch:before {
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
     gap: 4rem;
-    align-items: center;
+    align-items: stretch;
 }
 
 .assistant-info {
@@ -2749,4 +2749,45 @@ body.dark-theme .cert-scheme-section h4 {
         width: 100%;
         padding: 2rem;
     }
+}
+
+/* TTS Button Styling */
+.btn-speak {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(22, 163, 74, 0.08);
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.btn-speak:hover {
+    background: var(--primary);
+    color: #FFFFFF;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
+}
+
+.btn-speak:active {
+    transform: scale(0.95);
+}
+
+body.dark-theme .btn-speak {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: var(--primary-light);
+}
+
+body.dark-theme .btn-speak:hover {
+    background: var(--primary-light);
+    color: #0F172A;
 }
