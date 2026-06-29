@@ -1,4 +1,4 @@
-# GramSathi AI 🇮🇳
+# GramSathi AI
 > **Find Opportunities. Stay Protected. Empower Communities.**
 
 GramSathi AI is a premium, AI-powered Opportunity Discovery and Cyber Safety Platform designed for rural and semi-urban Indian communities. It acts as a trusted digital companion, empowering citizens to discover eligible welfare schemes, scholarships, and agricultural subsidies while protecting them from online fraud, phishing, spoof portals, and fake loans.
